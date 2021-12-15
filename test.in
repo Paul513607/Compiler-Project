@@ -1,0 +1,8 @@
+string #var1;
+int #var2;
+int #var3(int #n1, int #n2);
+begin_main
+    #var1 := "asd01";
+    #var2 := -12;
+    #var3(12, -12);
+end_main
