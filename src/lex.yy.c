@@ -476,8 +476,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "./main.l"
-#line 2 "./main.l"
+#line 1 "main.l"
+#line 2 "main.l"
 #include <stdio.h>
 #include "main.tab.h"
 #line 484 "lex.yy.c"
@@ -698,7 +698,7 @@ YY_DECL
 		}
 
 	{
-#line 6 "./main.l"
+#line 6 "main.l"
 
 #line 704 "lex.yy.c"
 
@@ -759,59 +759,59 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "./main.l"
+#line 7 "main.l"
 {return TYPE;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "./main.l"
+#line 8 "main.l"
 {return BGIN;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 9 "./main.l"
+#line 9 "main.l"
 {return END;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 10 "./main.l"
+#line 10 "main.l"
 {return VAR;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 11 "./main.l"
+#line 11 "main.l"
 {return ASSIGN;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 12 "./main.l"
+#line 12 "main.l"
 {yylval.intval=atoi(yytext); return NR;}
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 13 "./main.l"
+#line 13 "main.l"
 {yylval.strval=strdup(yytext); return STRING;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 14 "./main.l"
+#line 14 "main.l"
 ;
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 15 "./main.l"
+#line 15 "main.l"
 {yylineno++;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 16 "./main.l"
+#line 16 "main.l"
 {return yytext[0];}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 17 "./main.l"
+#line 17 "main.l"
 ECHO;
 	YY_BREAK
 #line 818 "lex.yy.c"
@@ -1819,7 +1819,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 17 "./main.l"
+#line 17 "main.l"
 
 
  
