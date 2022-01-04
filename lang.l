@@ -2,6 +2,8 @@
     #include <stdlib.h>
     #include <stdbool.h>
     #include "syntax.h"
+
+    enum getTypeFromToken( const char * );
     
 %}
 
@@ -11,7 +13,7 @@
 Word    [a-zA-Z_][a-zA-Z_0-9]*
 
 Int     0|([1-9][0-9]*)
-Float   (0|([1-9][0-9]*)|[:blank:])"."([0-9]*)
+Real   (0|([1-9][0-9]*)|[:blank:])"."([0-9]*)
 
 String  (\"([^\\\"]|\\.)*\")
 
@@ -27,7 +29,7 @@ String  (\"([^\\\"]|\\.)*\")
 
 "int"   {return IntIdentifier;}
 "bool"   {return BoolIdentifier;}
-"float"   {return FloatIdentifier;}
+"real"   {return RealIdentifier;}
 "str"   {return StrIdentifier;}
 "arr"   {return ArrIdentifier;}
 
@@ -86,9 +88,9 @@ String  (\"([^\\\"]|\\.)*\")
     return StringConst;
 }
 
-{Float} {
-    yylval.Float = strtod ( yytext, NULL );
-    return FloatConst;
+{Real} {
+    yylval.Real = strtod ( yytext, NULL );
+    return RealConst;
 }
 
 {Int} {

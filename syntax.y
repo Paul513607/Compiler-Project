@@ -1,6 +1,6 @@
 %{
     #include <stdbool.h>
-
+    #include "/pls-libs/plsLangBuiltIns.h"
     extern int yylex (void);
     extern int yyerror (char const *);
 %}
@@ -8,8 +8,9 @@
 %union{
     bool Bool;
     int Int;
-    float Float;
+    float Real;
     char * Str;
+    int * Arr;
 }
 
 %token VarInitializer
@@ -22,7 +23,7 @@
 
 %token IntIdentifier
 %token BoolIdentifier
-%token FloatIdentifier
+%token RealIdentifier
 %token StrIdentifier
 %token ArrIdentifier
 
@@ -63,10 +64,10 @@
 %token Null
 %token <Bool> BoolConst;
 
-%token <Str> ArrConst;
+%token <Arr> ArrConst;
 %token <Str> StringConst;
-%token <Str> FloatConst;
-%token <Str> IntConst;
+%token <Real> RealConst;
+%token <Int> IntConst;
 %token <Str> Word;
 
 
@@ -91,7 +92,9 @@ Interpret:
         TypeDefinition;
 
     Declaration: 
-        VarDeclaration ';';
+        VarDeclaration ';'{
+            
+        };
     
     VarDeclaration:
         VarInitializer Word OfType TypeName  |
@@ -107,14 +110,14 @@ Interpret:
         Null        |
         BoolConst   |
         IntConst    |
-        FloatConst  |
+        RealConst   |
         ArrConst    |
         StringConst;
 
     TypeName:
         BoolIdentifier |
         IntIdentifier  |
-        FloatIdentifier|
+        RealIdentifier|
         StrIdentifier  |
         ArrIdentifier;
 
@@ -194,6 +197,8 @@ Interpret:
 
     FunctionCall:
         EvalIdentifier '(' BinaryExpression ')' ';'|
-        PrintIdentifier '(' BinaryExpression ')' ';';
+        PrintIdentifier '(' StringConst ',' BinaryExpression ')' ';' {
+            printf("%s\n", $3);
+        };
         
 %%

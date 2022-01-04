@@ -1,4 +1,6 @@
+var a : int = 3;
 
+var add : str = "1233";
 
 var a : int = 3 + 2;
 var number : int = 5 * 2;
@@ -10,13 +12,14 @@ fun foo : bool (){
     for(i = 2; i < n; i + 2 ){
         j = 2;
     }
+
 }
 
 var unInit : int = 2 * number;
 
-var flout : float = 2.0;
-var flout2 : float = 2.0 + 3 + 0.4;
-var flout3 : float = 5.0 - 2;
+var flout : real = 2.0;
+var flout2 : real = 2.0 + 3 + 0.4;
+var flout3 : real = 5.0 - 2;
 
 var string : str = "plm";
 var string : str;
@@ -31,6 +34,10 @@ fun foo : bool (){
     } else {
         i = 2;
     }
+
+    var a : str = true;
+    a = 2;
+
 }
 
 fun fooo : int (var i : int, var j : int) {
@@ -49,7 +56,8 @@ fun foo3 : int (var i : int, var j : int) {
     eval( 2 > 3);
 }
 
+
 var Complex : type {
-    var real : int,
+    var real2 : int,
     var img : int;
 };
