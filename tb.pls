@@ -47,6 +47,7 @@ fun foo3 : int (var i : int, var j : int) {
         var i : int = 4 + a;
     }
     eval( 2 > 3);
+    print(2+3);
 }
 
 var Complex : type {

@@ -1,11 +1,14 @@
 %{
+    #include <stdio.h>
     #include <stdbool.h>
+    #include "csrc/plsErrors.h"
 
     extern int yylex (void);
     extern int yyerror (char const *);
 %}
 
 %union{
+    int * Arr;
     bool Bool;
     int Int;
     float Float;
@@ -63,10 +66,10 @@
 %token Null
 %token <Bool> BoolConst;
 
-%token <Str> ArrConst;
+%token <Arr> ArrConst;
 %token <Str> StringConst;
-%token <Str> FloatConst;
-%token <Str> IntConst;
+%token <Float> FloatConst;
+%token <Int> IntConst;
 %token <Str> Word;
 
 
@@ -153,7 +156,7 @@ Interpret:
 
     WhileBlock:
         WhileIdentifier Expression '{'
-            FunBody
+            Statements
         '}';
     
     ForBlock:
@@ -194,6 +197,8 @@ Interpret:
 
     FunctionCall:
         EvalIdentifier '(' BinaryExpression ')' ';'|
-        PrintIdentifier '(' BinaryExpression ')' ';';
+        PrintIdentifier '(' BinaryExpression ')' ';' {
+            printf("%s\n", $3));
+        };
         
 %%
