@@ -70,11 +70,12 @@
 
     #include <stdio.h>
     #include <stdbool.h>
-
+    #include "../csrc/plsErrors.h"
+    #include "../pls-libs/plsLangBuiltIns.h"
     extern int yylex (void);
     extern int yyerror (char const *);
 
-#line 78 "syntax.c"
+#line 79 "syntax.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -129,7 +130,7 @@ extern int yydebug;
     ReturnIdentifier = 262,
     IntIdentifier = 263,
     BoolIdentifier = 264,
-    FloatIdentifier = 265,
+    RealIdentifier = 265,
     StrIdentifier = 266,
     ArrIdentifier = 267,
     EvalIdentifier = 268,
@@ -161,7 +162,7 @@ extern int yydebug;
     BoolConst = 294,
     ArrConst = 295,
     StringConst = 296,
-    FloatConst = 297,
+    RealConst = 297,
     IntConst = 298,
     Word = 299
   };
@@ -171,14 +172,15 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 9 "../syntax.y"
+#line 10 "../syntax.y"
 
+    int * Arr;
     bool Bool;
     int Int;
-    float Float;
+    float Real;
     char * Str;
 
-#line 182 "syntax.c"
+#line 184 "syntax.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -557,13 +559,13 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    78,    78,    83,    84,    87,    88,    91,    92,    95,
-      98,    99,   102,   105,   108,   109,   110,   111,   112,   113,
-     116,   117,   118,   119,   120,   123,   127,   128,   131,   132,
-     135,   135,   139,   140,   143,   144,   145,   146,   147,   148,
-     151,   152,   153,   156,   161,   166,   169,   176,   177,   178,
-     179,   180,   181,   182,   183,   184,   185,   186,   187,   188,
-     189,   190,   191,   192,   193,   194,   197,   198
+       0,    80,    80,    85,    86,    89,    90,    93,    94,    97,
+     102,   103,   106,   109,   112,   113,   114,   115,   116,   117,
+     120,   121,   122,   123,   124,   127,   131,   132,   135,   136,
+     139,   139,   143,   144,   147,   148,   149,   150,   151,   152,
+     155,   156,   157,   160,   165,   170,   173,   180,   181,   182,
+     183,   184,   185,   186,   187,   188,   189,   190,   191,   192,
+     193,   194,   195,   196,   197,   198,   201,   202
 };
 #endif
 
@@ -574,12 +576,12 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "VarInitializer", "OfType",
   "TypeInitializer", "FunctionIdentifier", "ReturnIdentifier",
-  "IntIdentifier", "BoolIdentifier", "FloatIdentifier", "StrIdentifier",
+  "IntIdentifier", "BoolIdentifier", "RealIdentifier", "StrIdentifier",
   "ArrIdentifier", "EvalIdentifier", "PrintIdentifier", "ReadIdentifier",
   "MainIdentifier", "IfIdentifier", "ElseIdentifier", "WhileIdentifier",
   "ForIdentifier", "mov", "gr", "le", "greq", "leeq", "eq", "neq", "sum",
   "mul", "divd", "mod", "band", "bor", "xor", "And", "Or", "dif", "Null",
-  "BoolConst", "ArrConst", "StringConst", "FloatConst", "IntConst", "Word",
+  "BoolConst", "ArrConst", "StringConst", "RealConst", "IntConst", "Word",
   "';'", "'{'", "'}'", "'('", "')'", "','", "$accept", "Interpret",
   "CodeBlocks", "CodeBlock", "Definition", "Declaration", "VarDeclaration",
   "VarAssignment", "Expression", "Const", "TypeName", "TypeDefinition",
@@ -1493,23 +1495,31 @@ yyreduce:
   switch (yyn)
     {
   case 2:
-#line 78 "../syntax.y"
+#line 80 "../syntax.y"
               {
         printf("Code compiled successfully.\n");
     }
-#line 1501 "syntax.c"
+#line 1503 "syntax.c"
+    break;
+
+  case 9:
+#line 97 "../syntax.y"
+                          {
+            
+        }
+#line 1511 "syntax.c"
     break;
 
   case 67:
-#line 198 "../syntax.y"
+#line 202 "../syntax.y"
                                                      {
-            printf(2+3);
+            printf("");
         }
-#line 1509 "syntax.c"
+#line 1519 "syntax.c"
     break;
 
 
-#line 1513 "syntax.c"
+#line 1523 "syntax.c"
 
       default: break;
     }
@@ -1741,4 +1751,4 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 202 "../syntax.y"
+#line 206 "../syntax.y"

@@ -31,13 +31,13 @@ Grammar
    13 Const: Null
    14      | BoolConst
    15      | IntConst
-   16      | FloatConst
+   16      | RealConst
    17      | ArrConst
    18      | StringConst
 
    19 TypeName: BoolIdentifier
    20         | IntIdentifier
-   21         | FloatIdentifier
+   21         | RealIdentifier
    22         | StrIdentifier
    23         | ArrIdentifier
 
@@ -114,7 +114,7 @@ Terminals, with rules where they appear
     ReturnIdentifier (262) 38
     IntIdentifier (263) 20
     BoolIdentifier (264) 19
-    FloatIdentifier (265) 21
+    RealIdentifier (265) 21
     StrIdentifier (266) 22
     ArrIdentifier (267) 23
     EvalIdentifier (268) 65
@@ -144,10 +144,10 @@ Terminals, with rules where they appear
     dif (292) 57
     Null (293) 13
     BoolConst <Bool> (294) 14
-    ArrConst <Str> (295) 17
+    ArrConst <Arr> (295) 17
     StringConst <Str> (296) 18
-    FloatConst <Str> (297) 16
-    IntConst <Str> (298) 15
+    RealConst <Real> (297) 16
+    IntConst <Int> (298) 15
     Word <Str> (299) 9 10 11 24 25 26 63
 
 
@@ -371,7 +371,7 @@ State 16
     TypeInitializer  shift, and go to state 18
     IntIdentifier    shift, and go to state 19
     BoolIdentifier   shift, and go to state 20
-    FloatIdentifier  shift, and go to state 21
+    RealIdentifier   shift, and go to state 21
     StrIdentifier    shift, and go to state 22
     ArrIdentifier    shift, and go to state 23
 
@@ -383,11 +383,11 @@ State 17
    25 FunDefinition: FunctionIdentifier Word OfType . TypeName '(' ')' '{' FunBody '}'
    26              | FunctionIdentifier Word OfType . TypeName '(' ParameterList ')' '{' FunBody '}'
 
-    IntIdentifier    shift, and go to state 19
-    BoolIdentifier   shift, and go to state 20
-    FloatIdentifier  shift, and go to state 21
-    StrIdentifier    shift, and go to state 22
-    ArrIdentifier    shift, and go to state 23
+    IntIdentifier   shift, and go to state 19
+    BoolIdentifier  shift, and go to state 20
+    RealIdentifier  shift, and go to state 21
+    StrIdentifier   shift, and go to state 22
+    ArrIdentifier   shift, and go to state 23
 
     TypeName  go to state 25
 
@@ -415,7 +415,7 @@ State 20
 
 State 21
 
-   21 TypeName: FloatIdentifier .
+   21 TypeName: RealIdentifier .
 
     $default  reduce using rule 21 (TypeName)
 
@@ -470,7 +470,7 @@ State 27
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -545,7 +545,7 @@ State 35
 
 State 36
 
-   16 Const: FloatConst .
+   16 Const: RealConst .
 
     $default  reduce using rule 16 (Const)
 
@@ -572,7 +572,7 @@ State 39
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -724,7 +724,7 @@ State 49
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -741,7 +741,7 @@ State 50
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -758,7 +758,7 @@ State 51
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -775,7 +775,7 @@ State 52
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -792,7 +792,7 @@ State 53
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -809,7 +809,7 @@ State 54
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -826,7 +826,7 @@ State 55
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -843,7 +843,7 @@ State 56
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -860,7 +860,7 @@ State 57
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -877,7 +877,7 @@ State 58
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -894,7 +894,7 @@ State 59
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -911,7 +911,7 @@ State 60
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -928,7 +928,7 @@ State 61
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -945,7 +945,7 @@ State 62
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -962,7 +962,7 @@ State 63
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -979,7 +979,7 @@ State 64
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1033,11 +1033,11 @@ State 67
     9 VarDeclaration: VarInitializer Word OfType . TypeName
    10               | VarInitializer Word OfType . TypeName mov BinaryExpression
 
-    IntIdentifier    shift, and go to state 19
-    BoolIdentifier   shift, and go to state 20
-    FloatIdentifier  shift, and go to state 21
-    StrIdentifier    shift, and go to state 22
-    ArrIdentifier    shift, and go to state 23
+    IntIdentifier   shift, and go to state 19
+    BoolIdentifier  shift, and go to state 20
+    RealIdentifier  shift, and go to state 21
+    StrIdentifier   shift, and go to state 22
+    ArrIdentifier   shift, and go to state 23
 
     TypeName  go to state 24
 
@@ -1549,7 +1549,7 @@ State 87
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1589,7 +1589,7 @@ State 91
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1773,7 +1773,7 @@ State 108
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1790,7 +1790,7 @@ State 109
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1808,7 +1808,7 @@ State 110
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -1841,7 +1841,7 @@ State 113
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -2034,7 +2034,7 @@ State 122
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39
@@ -2248,7 +2248,7 @@ State 135
     BoolConst    shift, and go to state 33
     ArrConst     shift, and go to state 34
     StringConst  shift, and go to state 35
-    FloatConst   shift, and go to state 36
+    RealConst    shift, and go to state 36
     IntConst     shift, and go to state 37
     Word         shift, and go to state 38
     '('          shift, and go to state 39

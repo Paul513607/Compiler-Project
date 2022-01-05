@@ -56,7 +56,7 @@ extern int yydebug;
     ReturnIdentifier = 262,
     IntIdentifier = 263,
     BoolIdentifier = 264,
-    FloatIdentifier = 265,
+    RealIdentifier = 265,
     StrIdentifier = 266,
     ArrIdentifier = 267,
     EvalIdentifier = 268,
@@ -88,7 +88,7 @@ extern int yydebug;
     BoolConst = 294,
     ArrConst = 295,
     StringConst = 296,
-    FloatConst = 297,
+    RealConst = 297,
     IntConst = 298,
     Word = 299
   };
@@ -98,14 +98,15 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 9 "../syntax.y"
+#line 10 "../syntax.y"
 
+    int * Arr;
     bool Bool;
     int Int;
-    float Float;
+    float Real;
     char * Str;
 
-#line 109 "syntax.h"
+#line 110 "syntax.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

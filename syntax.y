@@ -1,8 +1,8 @@
 %{
     #include <stdio.h>
     #include <stdbool.h>
-    #include "csrc/plsErrors.h"
-
+    #include "../csrc/plsErrors.h"
+    #include "../pls-libs/plsLangBuiltIns.h"
     extern int yylex (void);
     extern int yyerror (char const *);
 %}
@@ -11,7 +11,7 @@
     int * Arr;
     bool Bool;
     int Int;
-    float Float;
+    float Real;
     char * Str;
 }
 
@@ -25,7 +25,7 @@
 
 %token IntIdentifier
 %token BoolIdentifier
-%token FloatIdentifier
+%token RealIdentifier
 %token StrIdentifier
 %token ArrIdentifier
 
@@ -68,7 +68,7 @@
 
 %token <Arr> ArrConst;
 %token <Str> StringConst;
-%token <Float> FloatConst;
+%token <Real> RealConst;
 %token <Int> IntConst;
 %token <Str> Word;
 
@@ -94,7 +94,9 @@ Interpret:
         TypeDefinition;
 
     Declaration: 
-        VarDeclaration ';';
+        VarDeclaration ';'{
+            
+        };
     
     VarDeclaration:
         VarInitializer Word OfType TypeName  |
@@ -110,14 +112,14 @@ Interpret:
         Null        |
         BoolConst   |
         IntConst    |
-        FloatConst  |
+        RealConst   |
         ArrConst    |
         StringConst;
 
     TypeName:
         BoolIdentifier |
         IntIdentifier  |
-        FloatIdentifier|
+        RealIdentifier|
         StrIdentifier  |
         ArrIdentifier;
 
@@ -198,7 +200,7 @@ Interpret:
     FunctionCall:
         EvalIdentifier '(' BinaryExpression ')' ';'|
         PrintIdentifier '(' BinaryExpression ')' ';' {
-            printf("%s\n", $3));
+            printf("");
         };
         
 %%
