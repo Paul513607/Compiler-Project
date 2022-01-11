@@ -214,13 +214,26 @@ function parse(inp){
 	return outStack.pop();
 }
 
-process.argv.forEach((expr) => {
-	fs.writeFileSync("./ast_data.json", JSON.stringify(parse(expr)), (err) => {
-		if (err) {
-			return console.log(err);
-		}
-		console.log("File saved successfully");
-	})
+let args = process.argv.slice(2);
+let expr = args[0];
+let index = args[1];
+
+fs.writeFileSync(`./ast_data-${index}.json`, JSON.stringify(parse(expr)), (err) => {
+	if (err) {
+		return console.log(err);
+	}
+	console.log("File saved successfully");
 })
+
+// args.forEach((expr) => {
+// 	console.log(expr);
+// 	fs.writeFileSync(`./ast_data-${i}.json`, JSON.stringify(parse(expr)), (err) => {
+// 		if (err) {
+// 			return console.log(err);
+// 		}
+// 		console.log("File saved successfully");
+// 	})
+// 	i = i + 1;
+// })
 
 // console.log(parse("2+3*4-2"));

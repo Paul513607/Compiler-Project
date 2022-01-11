@@ -9,6 +9,8 @@
 #define TYPE_ARRAY 2
 #define TYPE_FUNCTION 3
 
+int global_expr_counter = 0;
+
 struct var {
 	char id[100];
 	int var_type;

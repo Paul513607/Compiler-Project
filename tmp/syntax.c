@@ -2956,12 +2956,17 @@ struct var* comp(struct var* a, struct var* b, int op_type) {
 }
 
 void printStr(const char * str){
+	global_expr_counter++;
+	char index = (char) global_expr_counter + '0';
 	printf("%s = ", str);
 	char expr[1024];
 	strcpy(expr, "node ast-maker.js \"");
 	strcat(expr, str);
+	strcat(expr, "\" \"");
+	int len = strlen(expr);
+	expr[len] = index;
+	expr[len + 1] = '\0';
 	strcat(expr, "\"");
-	printf("AAAAAAA %s\n", expr);
 	system(expr);
 }
 

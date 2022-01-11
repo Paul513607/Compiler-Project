@@ -1,5 +1,4 @@
-print 2+3;
-print "5-3*4",5 - 3 * 4;
+print "5 * ((3+4)/(2+8*2+2))",5 * ((3+4)/(2+8*2+2));
 
 Define Type 
 {
@@ -36,6 +35,11 @@ arr[3] = 2.54324;
 arr[7] = 8.5;
 
 print arr;
+
+Integer v = 24;
+Integer w = 12;
+
+print "(v+2*w)/4",(v+2*w)/4; 
 
 Eval(1 + 8 / 4 + 2 * 4);
 
