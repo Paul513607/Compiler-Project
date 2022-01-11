@@ -1,5 +1,5 @@
 print 2+3;
-print "2+3 = ",2+3;
+print "5-3*4",5 - 3 * 4;
 
 Define Type 
 {

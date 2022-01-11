@@ -1,1 +1,4 @@
-src/main.o
+src
+pls
+symbol_table.txt
+ast_data.json

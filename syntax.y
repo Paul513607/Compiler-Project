@@ -947,7 +947,12 @@ struct var* comp(struct var* a, struct var* b, int op_type) {
 }
 
 void printStr(const char * str){
-	printf("%s", str);
+	printf("%s = ", str);
+	char expr[1024];
+	strcpy(expr, "node ast-maker.js \"");
+	strcat(expr, str);
+	strcat(expr, "\"");
+	system(expr);
 }
 
 void printValue(struct var* node) {

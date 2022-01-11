@@ -1,7 +1,9 @@
 #include <stdio.h>     /* C declarations used in actions */
 #include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 #define TYPE_NORMAL 1
 #define TYPE_ARRAY 2
